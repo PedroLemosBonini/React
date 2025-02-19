@@ -143,13 +143,13 @@ module.exports = class userController {
           return res.status(500).json({ error: "Erro interno do servidor" });
         }
         if (results.length === 0) {
-          return res.status(404).json({ error: "Usuário não encontrado" });
+          return res.status(404).json({ message: "Usuário não encontrado" });
         }
 
         const user = results[0];
 
         if (user.password != password) {
-          return res.status(403).json({ error: "Senha incorreta" });
+          return res.status(403).json({ message: "Senha incorreta" });
         }
 
         return res.status(200).json({ message: "Login bem sucedido", user });
